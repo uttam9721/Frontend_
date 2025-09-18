@@ -1,11 +1,13 @@
-import React from 'react'
+import { createContext } from "react";
 
-const AppContext = () => {
-  return (
-    <div>
-      <h1>App context</h1>
-    </div>
-  )
-}
+const AppContext = createContext();
 
-export default AppContext
+export default AppContext;
+
+
+
+
+
+// fetch('https://fakestoreapi.com/products')
+//   .then(response => response.json())
+//   .then(data => console.log(data));
