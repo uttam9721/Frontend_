@@ -82,8 +82,8 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-5">
-            <div className="shadow rounded-2xl w-20 text-center h-8">Login</div>
-            <div className="shadow rounded-2xl w-20 text-center h-8">Register</div>
+            <button className="shadow rounded-2xl w-20 text-center h-8 cursor-pointer">Login</button>
+            <button className="cursor-pointer shadow rounded-2xl w-20 text-center h-8">Register</button>
           </div>
         </div>
       )}

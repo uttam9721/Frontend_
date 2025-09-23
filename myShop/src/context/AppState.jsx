@@ -8,8 +8,11 @@ const AppState = ({ children }) => {
   const fetchProduct = async () => {
     try {
       const response = await fetch("https://fakestoreapi.com/products");
+      
       const data = await response.json();
       setProduct(data);
+      console.log(data);
+      
       setLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error);

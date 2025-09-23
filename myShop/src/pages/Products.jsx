@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import AppContext from "../context/AppContext";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const { product, loading } = useContext(AppContext);
@@ -9,9 +10,10 @@ const Products = () => {
   }
 
   return (
+   <div
+>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6">
       {product.map((item, idx) => {
-        // Fake multiple images (API has only 1)
         const images = [item.image, item.image, item.image];
         const [current, setCurrent] = useState(0);
         const scrollRef = useRef(null);
@@ -35,11 +37,10 @@ const Products = () => {
         };
 
         return (
-          <div
+          <Link to={`/products/${item.id}`}
             key={idx}
             className="border shadow rounded-xl p-4 flex flex-col items-center w-[261px]"
           >
-            {/* Image Carousel */}
             <div
               ref={scrollRef}
               onScroll={handleScroll}
@@ -55,7 +56,6 @@ const Products = () => {
               ))}
             </div>
 
-            {/* Dots */}
             <div className="flex justify-center mt-2 space-x-1">
               {images.map((_, dotIdx) => (
                 <span
@@ -68,7 +68,6 @@ const Products = () => {
               ))}
             </div>
 
-            {/* Product Details */}
             <h2 className="text-lg font-bold text-center mt-3">{item.title}</h2>
             <p className="text-sm text-gray-500 text-center">
               {item.description.substring(0, 80)}...
@@ -84,10 +83,11 @@ const Products = () => {
                 Add to Cart
               </button>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>
+   </div>
   );
 };
 
